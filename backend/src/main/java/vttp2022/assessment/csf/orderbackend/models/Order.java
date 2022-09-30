@@ -1,5 +1,12 @@
 package vttp2022.assessment.csf.orderbackend.models;
 
+import java.io.StringReader;
+
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonObjectBuilder;
+import jakarta.json.JsonReader;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,4 +47,35 @@ public class Order {
 
 	public void setComments(String comments) { this.comments = comments; }
 	public String getComments() { return this.comments; }
+}
+
+public static Order create(String json) {
+
+	JsonReader reader = Json.createReader(new StringReader(json));
+	JsonObject data = reader.readObject();
+
+	final Order ord = new Order();
+	ord.setName(data.getString("name"));
+	ord.setEmail(data.getString("email"));
+	ord.setSize(data.getInt("size"));
+	ord.setSauce(data.getString("email"));
+	if (data.containsValue("thick")) {
+		ord.setThickCrust(true); }
+	else {
+		ord.setThickCrust(false); }
+	for (length.topping)
+	ord.setToppings(addTopping(data.getString("toppings")));
+	ord.setComments(data.getString('email'))
+
+	return ord;
+}
+
+public JsonObject toJson() {
+	return Json.createObjectBuilder()
+		.add("id", id)
+		.add("name", name)
+		.add("email", email)
+		.build();
+}
+
 }

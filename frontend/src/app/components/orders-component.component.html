@@ -1,0 +1,8 @@
+<h1>Orders for {{email}}</h1>
+<ul>
+    <li *ngFor="let a of orders">
+      <a>{{ a.orderid }}</a>
+      <a>{{ a.price }}</a>
+    </li>
+</ul>
+<button [routerLink]="[ '/' ]">back</button>
