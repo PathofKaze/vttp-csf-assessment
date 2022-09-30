@@ -16,23 +16,18 @@ public class OrderService {
 	@Autowired
 	private PricingService priceSvc;
 
-	// POST /api/order
-	// Create a new order by inserting into orders table in pizzafactory database
-	// IMPORTANT: Do not change the method's signature
 	public void createOrder(Order order) {
 
 	}
 	@Autowired
     private OrderRepo orderRepo;
 
-	 public Optional<Order> () {
-		 return orderRepo.create(ord);
+	public Optional<Order> createOrder(String payload) {
+		return orderRepo.createOrder(payload);
 	 }
-	// GET /api/order/<email>/all
-	// Get a list of orders for email from orders table in pizzafactory database
-	// IMPORTANT: Do not change the method's signature
+
 	public List<OrderSummary> getOrdersByEmail(String email) {
 	
-		// Use priceSvc to calculate the total cost of an order
+			return orderRepo.getOrdersByEmail(email);
 	}
 }

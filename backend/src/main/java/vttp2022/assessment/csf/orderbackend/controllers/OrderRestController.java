@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +45,7 @@ public class OrderRestController {
         }
 
         @GetMapping(path="api/order/{email}")
-        public ResponseEntity<String> {
+        public ResponseEntity<String> getOrdersByEmail(@PathVariable String email) {
 
         List<OrderSummary> summaries = orderSvc.getOrdersByEmail(email);
 

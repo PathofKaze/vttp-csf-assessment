@@ -65,7 +65,6 @@ public static Order create(String json) {
 		ord.setThickCrust(true); }
 	else {
 		ord.setThickCrust(false); }
-	for (length.topping)
 	ord.setToppings(addTopping(data.getString("toppings")));
 	ord.setComments(data.getVoid(("comments"));
 
