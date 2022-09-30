@@ -10,6 +10,8 @@ import jakarta.json.JsonReader;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 // IMPORTANT: You can add to this class, but you cannot delete its original content
 
 public class Order {
@@ -58,14 +60,14 @@ public static Order create(String json) {
 	ord.setName(data.getString("name"));
 	ord.setEmail(data.getString("email"));
 	ord.setSize(data.getInt("size"));
-	ord.setSauce(data.getString("email"));
+	ord.setSauce(data.getString("sauce"));
 	if (data.containsValue("thick")) {
 		ord.setThickCrust(true); }
 	else {
 		ord.setThickCrust(false); }
 	for (length.topping)
 	ord.setToppings(addTopping(data.getString("toppings")));
-	ord.setComments(data.getString('email'))
+	ord.setComments(data.getVoid(("comments"));
 
 	return ord;
 }
@@ -78,4 +80,13 @@ public JsonObject toJson() {
 		.build();
 }
 
+public static Order create(SqlRowSet rs) {
+	Order order = new Order();
+	order.setName(rs.getString("name"));
+	order.setEmail(rs.getString("email"));
+	order.setSize(rs.getInt("size"));
+	order.setSauce(rs.getString("sauce"));
+	order.setThickCrust(rs.getBoolean("String"));
+	order.setToppings(rs.getString("image_url"));
+	return order;
 }

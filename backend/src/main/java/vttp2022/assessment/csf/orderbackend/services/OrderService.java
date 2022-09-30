@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import vttp2022.assessment.csf.orderbackend.models.Order;
 import vttp2022.assessment.csf.orderbackend.models.OrderSummary;
+import vttp2022.assessment.csf.orderbackend.repositories.OrderRepo;
 
 @Service
 public class OrderService {
@@ -21,7 +22,12 @@ public class OrderService {
 	public void createOrder(Order order) {
 
 	}
+	@Autowired
+    private OrderRepo orderRepo;
 
+	 public Optional<Order> () {
+		 return orderRepo.create(ord);
+	 }
 	// GET /api/order/<email>/all
 	// Get a list of orders for email from orders table in pizzafactory database
 	// IMPORTANT: Do not change the method's signature
